@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}About — The Journal{% endblock %}
+{% block content %}
+
+<div class="about-page">
+  <div class="about-header">
+    <div class="about-avatar">A</div>
+    <div>
+      <h1 class="about-name"><em>About Me</em></h1>
+      <p class="about-role">Writer · Thinker · Explorer</p>
+    </div>
+  </div>
+
+  <div class="post-divider"></div>
+
+  <div class="about-body">
+    <p>Welcome to <em>The Journal</em> — a place where I write about things that fascinate, challenge, and inspire me.</p>
+    <p>I believe in the power of words to capture moments, share ideas, and connect people across experiences. This blog is my small corner of the internet where I explore those ideas freely.</p>
+    <p>Feel free to reach out — I'd love to hear from you.</p>
+  </div>
+
+  <div class="post-divider"></div>
+  <a href="{{ url_for('index') }}" class="back-link">← Read the posts</a>
+</div>
+{% endblock %}

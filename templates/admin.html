@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Admin — The Journal{% endblock %}
+{% block content %}
+
+<div class="admin-header">
+  <div>
+    <h1 class="page-title"><em>Admin Panel</em></h1>
+    <p class="page-sub">Manage your posts</p>
+  </div>
+  <a href="{{ url_for('new_post') }}" class="btn">+ New Post</a>
+</div>
+
+<div class="table-wrap">
+  {% if posts %}
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Tags</th>
+        <th>Status</th>
+        <th>Created</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in posts %}
+      <tr>
+        <td class="td-title">
+          {% if p.published %}
+            <a href="{{ url_for('post', slug=p.slug) }}" target="_blank">{{ p.title }}</a>
+          {% else %}
+            <span class="draft-title">{{ p.title }}</span>
+          {% endif %}
+        </td>
+        <td>
+          {% for tag in p.tags %}
+            <span class="tag tag-sm">{{ tag }}</span>
+          {% endfor %}
+        </td>
+        <td>
+          <span class="status-badge {% if p.published %}status-live{% else %}status-draft{% endif %}">
+            {{ "Live" if p.published else "Draft" }}
+          </span>
+        </td>
+        <td class="td-date">{{ p.created_at[:10] }}</td>
+        <td class="td-actions">
+          <a href="{{ url_for('edit_post', post_id=p.id) }}" class="btn btn-sm btn-outline">Edit</a>
+          <a href="{{ url_for('toggle_publish', post_id=p.id) }}" class="btn btn-sm btn-ghost">
+            {{ "Unpublish" if p.published else "Publish" }}
+          </a>
+          <a href="{{ url_for('delete_post', post_id=p.id) }}" class="btn btn-sm btn-danger"
+             onclick="return confirm('Delete this post permanently?')">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">
+    <p><em>No posts yet.</em></p>
+    <a href="{{ url_for('new_post') }}" class="btn" style="margin-top:16px;">Create your first post</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

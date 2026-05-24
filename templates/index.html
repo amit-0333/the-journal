@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}The Journal — Home{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+  <p class="hero-sub">Welcome to</p>
+  <h1 class="hero-title"><em>The Journal</em></h1>
+  <p class="hero-desc">Thoughts, stories and ideas worth sharing.</p>
+</section>
+
+<!-- Tags filter -->
+{% if tags %}
+<div class="tags-bar">
+  <a href="{{ url_for('index') }}" class="tag {% if not tag_filter %}tag-active{% endif %}">All</a>
+  {% for tag in tags %}
+    <a href="{{ url_for('index', tag=tag) }}" class="tag {% if tag == tag_filter %}tag-active{% endif %}">{{ tag }}</a>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Posts Grid -->
+{% if posts %}
+<div class="posts-grid">
+  {% for post in posts %}
+  <article class="post-card {% if loop.first and not tag_filter %}post-card-featured{% endif %}">
+    <div class="post-card-meta">
+      <span class="post-date">{{ post.created_at[:10] }}</span>
+      {% for tag in post.tags %}
+        <a href="{{ url_for('index', tag=tag) }}" class="tag tag-sm">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    <h2 class="post-card-title">
+      <a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a>
+    </h2>
+    <p class="post-card-excerpt">{{ post.excerpt }}</p>
+    <a href="{{ url_for('post', slug=post.slug) }}" class="read-more">Read more →</a>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+  <p><em>No posts yet.</em></p>
+  <small>Check back soon.</small>
+</div>
+{% endif %}
+{% endblock %}

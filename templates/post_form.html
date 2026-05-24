@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ "Edit Post" if action == "edit" else "New Post" }} — Admin{% endblock %}
+{% block content %}
+
+<div class="form-page">
+  <div class="form-page-header">
+    <a href="{{ url_for('admin') }}" class="back-link">← Back to admin</a>
+    <h1 class="page-title"><em>{{ "Edit Post" if action == "edit" else "New Post" }}</em></h1>
+  </div>
+
+  <form method="POST" class="post-form">
+    <div class="form-group">
+      <label>Title *</label>
+      <input type="text" name="title" value="{{ post.title if post else '' }}"
+             placeholder="Your post title…" required/>
+    </div>
+
+    <div class="form-group">
+      <label>Excerpt <span class="label-hint">(shown on homepage — auto-generated if blank)</span></label>
+      <input type="text" name="excerpt" value="{{ post.excerpt if post else '' }}"
+             placeholder="A short summary of the post…"/>
+    </div>
+
+    <div class="form-group">
+      <label>Content *</label>
+      <textarea name="content" rows="16" placeholder="Write your post here…" required>{{ post.content if post else '' }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group" style="flex:1">
+        <label>Tags <span class="label-hint">(comma separated)</span></label>
+        <input type="text" name="tags"
+               value="{{ post.tags | join(', ') if post else '' }}"
+               placeholder="e.g. life, travel, tech"/>
+      </div>
+      <div class="form-group form-group-check">
+        <label class="checkbox-label">
+          <input type="checkbox" name="published" {% if post and post.published %}checked{% endif %}/>
+          <span>Publish immediately</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn">{{ "Update Post" if action == "edit" else "Create Post" }}</button>
+      <a href="{{ url_for('admin') }}" class="btn btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
