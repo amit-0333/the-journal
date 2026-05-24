@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "Why I Started Writing Online",
+        "slug": "why-i-started-writing-online",
+        "content": "There's something deeply vulnerable about putting your thoughts on the internet.\n\nFor a long time, I kept journals — private, password-locked, hidden. But one day I realised that the ideas I was hoarding were not mine to keep. They were borrowed from conversations, books, and quiet moments of clarity that deserved to be shared.\n\nSo I started writing publicly. Not for an audience, at first. Just for the discipline of finishing a thought.\n\nAnd something interesting happened: writing for others forced me to think more clearly. You can ramble in a private journal. But when someone else might read it, you owe them the courtesy of coherence.\n\nThat's why I'm here. Writing to think. Thinking to write.",
+        "excerpt": "There's something deeply vulnerable about putting your thoughts on the internet. For a long time, I kept journals — private, hidden. Then one day I decided to share.",
+        "tags": ["writing", "life"],
+        "published": true,
+        "created_at": "2026-05-20 10:00:00",
+        "updated_at": "2026-05-20 10:00:00"
+    },
+    {
+        "id": 2,
+        "title": "On Slow Mornings and Intentional Living",
+        "slug": "on-slow-mornings",
+        "content": "I used to wake up and immediately reach for my phone.\n\nThe news, the notifications, the emails — all of it rushing in before I had even decided what kind of day I wanted to have. It felt productive. It wasn't.\n\nSlow mornings changed everything for me. An hour before the world demands anything. Tea, not coffee. A book or a notebook. Silence that isn't empty but full.\n\nIntentional living doesn't mean doing less. It means doing things with attention. It means choosing where your energy goes before the day chooses for you.",
+        "excerpt": "I used to wake up and immediately reach for my phone. Slow mornings changed everything — an hour of quiet before the world demands anything.",
+        "tags": ["life", "mindfulness"],
+        "published": true,
+        "created_at": "2026-05-15 08:30:00",
+        "updated_at": "2026-05-15 08:30:00"
+    },
+    {
+        "id": 3,
+        "title": "Draft: Notes on Creativity",
+        "slug": "notes-on-creativity",
+        "content": "Still working on this one...",
+        "excerpt": "Rough notes on the creative process.",
+        "tags": ["creativity"],
+        "published": false,
+        "created_at": "2026-05-24 12:00:00",
+        "updated_at": "2026-05-24 12:00:00"
+    }
+]
